@@ -28,6 +28,7 @@ def direct (path) :
     print(eigval)
     print(acp.singular_values_**2/n)
     print(acp.explained_variance_ratio_)
+    return X
 def tableau1(X):
     print(X)
 
@@ -35,7 +36,7 @@ def tableau1(X):
 app = QtWidgets.QApplication([])
 dlg = uic.loadUi("fichier.ui")
 dlg.confirmer.clicked.connect(direct(importdufich()))
-dlg.pushButton.clicked.connect(tableau1)
+dlg.pushButton.clicked.connect(tableau1(direct(path)))
 
 dlg.show()
 app.exec()
